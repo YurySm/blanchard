@@ -1,0 +1,70 @@
+.gallery {
+    min-height: 995px;
+    background: url('../img/gallery/gallery_bg.jpg') center center/cover no-repeat;
+    .container {
+        display: flex;
+    }
+    &__title {
+        color: #FFFFFF;
+        margin-bottom: 30px;
+    }
+    &__left {
+        max-width: 400px;
+        margin-right: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &-wrapper {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            span {
+                font-weight: 600;
+                color: #FFFFFF;
+            }
+        }
+    }
+    &__info {
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 32px;
+    }
+    &__slider{
+        &-triggers {
+            display: flex;
+            padding-top: 25px;
+            margin-bottom: 30px;
+
+        }
+        &-counter {
+            margin: 0 12px;
+            color: #FFFFFF;
+        }
+        &-left,
+        &-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            font-size: 7px;
+            background: #666666;
+            border-radius: 100%;
+            
+        }
+    }
+    &__slide {
+        display: grid;
+        grid-template: repeat(2, minmax(auto, 350px))/ repeat(3, minmax(auto, 350px));
+        gap: 50px;
+        &-btn {
+            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+}

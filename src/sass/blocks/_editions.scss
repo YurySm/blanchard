@@ -1,0 +1,97 @@
+.editions {
+    min-height: 763px;
+    background: url('../img/editions/editions.jpg');
+    position: relative;
+    z-index: 1;
+    &__title {
+        color: #fff;
+    }
+    &__wrapper {
+        display: flex;
+    }
+    .categories,
+    .price {
+        margin-top: 30px;
+    }  
+    .categories {
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    } 
+    &__filter {
+        max-width: 450px;
+        &-title {
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+        label {
+            display: block;
+            color: #FFFFFF;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            span {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 12px;
+                height: 12px;
+                border: 1px solid #FFFFFF;
+                z-index: 0;
+                &::before {
+                    content: "";
+                    display: none;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 100%;
+                    background: #C283F3;
+                }
+            }
+            input {
+                margin-right: 12px;
+                opacity: 0;
+                &:checked ~ span {
+                    border: 1px solid #C283F3;
+                    &::before {
+                        display: block;
+                    }
+                }
+            }
+            &>input:checked {
+                color: #C283F3;
+            }
+        }
+    }
+    &__price {
+        margin-top: 10px;
+        width: 277px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 6px;
+        input {
+            width: 73px;
+            height: 100%;
+            margin: 0;
+            padding-left: 10px;
+            background: rgba(157, 92, 208, 0.5);
+            color: #FFFFFF;
+            &::placeholder {
+                color: #FFFFFF;
+            }
+        }
+        span {
+            margin: 0;
+            padding: 0 10px;
+            color: #FFFFFF;
+        }
+    }
+}   
+

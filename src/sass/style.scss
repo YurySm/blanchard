@@ -1,0 +1,45 @@
+@import 'libs/style_my_normolize.css';
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+}
+section {
+    padding: 80px 0;
+}
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.btn {
+    display: block;
+    width: 314px;
+    height: 70px;
+    border-radius: 100px;
+    background: #9D5CD0;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+.title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 65px;
+    color: #333333;
+}
+
+
+@import 'blocks/header';
+@import 'blocks/promo';
+@import 'blocks/about';
+@import 'blocks/gallery';
+@import 'blocks/catalog';
+@import 'blocks/events';
+@import 'blocks/editions';
