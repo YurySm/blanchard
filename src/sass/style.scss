@@ -1,5 +1,5 @@
 @import 'libs/style_my_normolize.css';
-
+@import 'base/fonts';
 * {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -8,6 +8,7 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 32px;
+    color: #333;
 }
 section {
     padding: 80px 0;
@@ -43,3 +44,4 @@ section {
 @import 'blocks/catalog';
 @import 'blocks/events';
 @import 'blocks/editions';
+@import 'blocks/projects';
