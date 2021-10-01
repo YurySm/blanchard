@@ -7,6 +7,11 @@
         align-items: center;
         justify-content: space-between;
     }
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     &__nav {
         &-items {
             display: flex;
@@ -16,17 +21,44 @@
                 margin-right: 62px;
             }
             a {
+                display: block;
+                padding: 1px 6px;
                 color: #FFFFFF;
+                &:focus {
+                    background: #7943A4;
+                }
+                &:hover {
+                    color: #C283F3;
+                }
+                &:active {
+                    background: transparent;
+                    color: #7943A4;
+                }
             }
         }
     }
     &__btn {
-        padding-left: 20px;
+        padding: 1px 6px;
         display: block;
         background-color: unset;
-        background: url('../icons/arrow.svg') left center no-repeat;
         text-align: right;
         color: #FFFFFF;
+        &:focus {
+            background: #7943A4;
+        }
+        &:hover {
+            color:#C283F3;
+            & > span > svg > path{
+                fill: #C283F3;
+            }
+        }
+        &:active {
+            background: transparent;
+            color: #9D5CD0;
+            & > span > svg > path{
+                fill: #9D5CD0;
+            }
+        }
 
     }
 

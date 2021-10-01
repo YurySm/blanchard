@@ -37,6 +37,27 @@
             background: none;
             color: #fff;
             border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+            &:focus {
+                border-bottom: 1px solid #7943A4;
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+            &:hover {
+                border-bottom: 1px solid #7943A4;
+                color: #C283F3;
+                &::placeholder {
+                    opacity: 0.85;
+                }
+            }
+            &:active {
+                background: transparent;
+                color: #7943A4;
+                &::placeholder {
+                    opacity: 0;
+                }
+                
+            }
         }
         & input::placeholder {
             width: 218px;
@@ -89,4 +110,36 @@
     &__btn {
         margin-top: 92px;
     }
+}
+.choices__inner {
+    background-color: transparent;
+    border: none;
+}
+.choices__placeholder {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.choices[data-type*=select-one]:after {
+    border: none;
+    background: url('../icons/arrow-select.svg') center right no-repeat;
+    width: 12px;
+    height: 11px;
+    right: 0;
+    opacity: 1;
+    transform: translateY(-50%);
+}
+.choices[data-type*=select-one].is-open:after {
+    border: none;
+    background: url('../icons/arrow-select.svg') center right no-repeat;
+    width: 12px;
+    height: 11px;
+    right: 0;
+    opacity: 1;
+    transform: rotate(180deg) translateY(-50%) ;
 }
