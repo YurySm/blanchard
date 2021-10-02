@@ -67,4 +67,92 @@
         }
     }
 
+    .choices,
+    .choices.is-focused,
+    .choices__item.choices__item--selectable {
+        border: none;
+        background: transparent;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        color: #FFFFFF;
+        opacity: 1;
+        text-align: left;
+
+    }
+    .choices {
+        border: 2px solid #FFFFFF;
+        border-radius: 5px;
+        
+    }
+    .choices__item.choices__item--selectable:hover {
+        color: #9D5CD0;
+    }
+    .choices__item.choices__item--selectable:active {
+        color: #7943A4;
+        background: transparent;
+    }
+    .choices.is-focused{
+        background: #7943A4;
+    }
+    .choices.is-open > .choices__list--single{
+        color: #7943A4;
+    }
+    .choices__inner {
+        background-color: transparent;
+        border: none;
+    }
+    .choices__list--single {
+        padding-right: 30px;
+    }
+    .choices__list {
+        border: none;
+        background: transparent;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        letter-spacing: normal;
+        color: #FFFFFF;
+        opacity: 1;
+    }
+    
+    .choices__placeholder {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        color: #FFFFFF;
+        opacity: 1;
+    }
+    .choices[data-type*=select-one]:after {
+        border: none;
+        background: url('../icons/gallery-select.svg') center right no-repeat;
+        width: 22px;
+        height: 12px;
+        right: 15px;
+        opacity: 1;
+        transform: translateY(-35%);
+    }
+    .choices[data-type*=select-one].is-open:after {
+        transform: rotate(180deg) translateY(-35%) ;
+    }
+    .choices__list--dropdown .choices__item--selectable.is-highlighted {
+        background-color: #D1A9F0;
+        color: #FFFFFF;
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .choices__list--dropdown .choices__item--selectable {
+        padding-right: 0;
+        text-align: left;
+    }
+
 }

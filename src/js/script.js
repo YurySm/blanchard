@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    //cusom selects
+    //custom selects
     const useCustomSelect = (el) => {
         if( typeof el ===  'string'){
             const element = document.querySelector(el);
             const choices = new Choices(el, {
                 placeholder: false,
-               
+                searchEnabled: false,
+                searchChoices: false,
+                itemSelectText: '',
             });
         } else {
             const choices = new Choices(el, {
@@ -18,10 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }      
     }
 
+    //promo
     const listSelects = document.querySelectorAll('.promo__selects > li > select');
     listSelects.forEach(item => useCustomSelect(item));
+    //gallry
+    useCustomSelect('.gallery__select');
 
-    //slider 
+
+    //slider promo
     $('.promo__slider').slick({
         infinite: true,
         slidesToShow: 1,
