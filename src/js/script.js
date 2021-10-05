@@ -39,4 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
         fade: true,
         cssEase: 'linear'
     });
+
+    //galerry promo
+    const nextBtn = document.querySelector('.gallery__slider-right'),
+          prevBtn = document.querySelector('.gallery__slider-left'),
+          counter = document.querySelector('.gallery__slider-counter'),
+          slideBtns = document.querySelectorAll('.gallery__slide-btn'),
+          sliderRoad = document.querySelector('.gallery__slider-road'),
+          slider = document.querySelector('.gallery__slider');
+
+
+    let stylesBtms =  window.getComputedStyle(slideBtns[0], null);
+
+        console.log(Math.ceil(stylesBtms.height.match(/\d+/).input.replace( 'px',"")));
+
+        slider.style.cssText = `
+            height: ${ (Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px',"")) * 2) + 100}px;
+          `;
+
+        nextBtn.addEventListener('click', () => {
+            let heightWindow = `${(Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px','')) * 2) + 100}`;
+            console.log(`${heightWindow}px`);
+            sliderRoad.style.cssText = `
+                transform: translateY(-${heightWindow}px);
+            `;
+        });
+
+
+
 });
