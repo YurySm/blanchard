@@ -49,22 +49,69 @@ document.addEventListener('DOMContentLoaded', () => {
           slider = document.querySelector('.gallery__slider');
 
 
-    let stylesBtms =  window.getComputedStyle(slideBtns[0], null);
+    let stylesBtms =  window.getComputedStyle(slideBtns[0], null),
+        heightWindow = (Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px',"")) * 2) + 50,
+        sliderRoadHeight = (Math.round(window.getComputedStyle(sliderRoad, null).height.replace('px','')) ),
+        counterSlide = 1,
+        allSlide = Math.round(sliderRoadHeight/heightWindow);
 
-        console.log(Math.ceil(stylesBtms.height.match(/\d+/).input.replace( 'px',"")));
+        counter.innerHTML = `${counterSlide} / ${allSlide}`;
 
-        slider.style.cssText = `
-            height: ${ (Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px',"")) * 2) + 100}px;
+
+    slider.style.cssText = `
+            height: ${heightWindow}px;
           `;
+    sliderRoad.style.cssText = `
+          transform: translateY(0px);
+      `;
 
-        nextBtn.addEventListener('click', () => {
-            let heightWindow = `${(Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px','')) * 2) + 100}`;
-            console.log(`${heightWindow}px`);
+    nextBtn.addEventListener('click', () => {
+        let curenntRoad = (Math.ceil(sliderRoad.getAttribute('style').match(/([^\)]+)\((.*)\)/)[2].slice(0,-2)));
+        if(counterSlide == allSlide) {
+            counterSlide = 1;
+            counter.innerHTML = `${counterSlide} / ${allSlide}`;
+            
             sliderRoad.style.cssText = `
-                transform: translateY(-${heightWindow}px);
+                transform: translateY(0px);
             `;
-        });
+            counterSlide = 1;
+        } else {
+            counter.innerHTML = `${++counterSlide} / ${allSlide}`;
+            sliderRoad.style.cssText = `
+                transform: translateY(${curenntRoad - heightWindow - 50}px);
+            `;
+        }
+    });
+    prevBtn.addEventListener('click', () => {
+        let curenntRoad = (Math.ceil(sliderRoad.getAttribute('style').match(/([^\)]+)\((.*)\)/)[2].slice(0,-2)));
+        if(counterSlide == 1) {
+            counterSlide = allSlide;
+            counter.innerHTML = `${counterSlide} / ${allSlide}`;
+            sliderRoad.style.cssText = `
+                transform: translateY(${heightWindow * -(allSlide-1) - 150 }px);
+            `;            
+        } else {
+            counter.innerHTML = `${--counterSlide} / ${allSlide}`;
+            sliderRoad.style.cssText = `
+                transform: translateY(${curenntRoad + heightWindow + 50}px);
+            `;
+        }
+    });
+    //catalog
+    const btnsLands = document.querySelectorAll('.catalog__nav-item > button');
 
+    btnsLands.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if(btn.classList.contains('btn-active')) {
+                btn.classList.remove('btn-active');
+            } else {
+                btnsLands.forEach(btn => {
+                    btn.classList.remove('btn-active');
+                });
+                btn.classList.add('btn-active');
+            }
+        });
+    });
 
 
 });

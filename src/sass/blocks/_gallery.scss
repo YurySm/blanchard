@@ -53,6 +53,8 @@
         &-road {
             display: grid;
             grid-template: repeat(2, minmax(auto, 350px))/ repeat(3, minmax(auto, 350px));
+            grid-auto-rows: repeat(2, minmax(auto, 350px));
+            grid-auto-columns: repeat(3, minmax(auto, 350px));
             gap: 50px; 
         }
         &-triggers {
@@ -96,6 +98,9 @@
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+        &-road{
+            height: 100%;
         }
     }
     // &__slide {

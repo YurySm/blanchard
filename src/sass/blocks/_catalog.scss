@@ -22,6 +22,15 @@
             button {
                 background: none;
                 border-radius: 100%;
+                &:hover,
+                &:focus {
+                    filter: drop-shadow(0px 0px 20px rgba(157, 92, 208, 0.7));
+                }
+                &:active {
+                    border: 2px solid #7943A4;
+                    filter: none;
+                }
+                
             }
             span {
                 display: block;
@@ -31,6 +40,7 @@
                 background-position: center;
                 background-size: cover;
             }
+            
         }
     }
     &__descr {
@@ -94,7 +104,7 @@
             height: 50px;
             border-radius: 100%;
             z-index: 0;
-            background:#ECECEC url('../../icons/catalog/catalog-arrow.svg') center center no-repeat;
+            background:#ECECEC url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
         }
         &-links {
             display: flex;
@@ -143,4 +153,8 @@
             color: #9D5CD0;
         }
     }
+}
+.btn-active {
+    border: 2px solid #7943A4;
+    padding: 10px;
 }
