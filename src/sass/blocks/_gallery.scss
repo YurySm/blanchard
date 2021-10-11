@@ -98,6 +98,38 @@
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
+            &:focus {
+                outline: 3px solid #7943A4;
+            }
+            &:hover{
+                outline: none;
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 25px;
+                    left: 25px;
+                    right: 25px;
+                    bottom: 25px;
+                    background: rgba(0, 0, 0, 0.5) url('../../img/gallery/hover.svg') center center no-repeat;
+                    z-index: 2;
+                }
+            }
+            &:active{
+                &::after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4));
+                    border: 2px solid #D1A9F0;
+                    z-index: 1;
+                }
+            }
         }
         &-road{
             height: 100%;

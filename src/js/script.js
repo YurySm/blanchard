@@ -41,12 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //galerry promo
-    const nextBtn = document.querySelector('.gallery__slider-right'),
-          prevBtn = document.querySelector('.gallery__slider-left'),
-          counter = document.querySelector('.gallery__slider-counter'),
-          slideBtns = document.querySelectorAll('.gallery__slide-btn'),
-          sliderRoad = document.querySelector('.gallery__slider-road'),
-          slider = document.querySelector('.gallery__slider');
+    function runMySlider({nextSlideBtn, prevSlideBtn, counterSlideItems, sliderItems, sliderWay, sliderWrapper}) {
+        const nextBtn = document.querySelector(nextSlideBtn),
+          prevBtn = document.querySelector(prevSlideBtn),
+          counter = document.querySelector(counterSlideItems),
+          slideBtns = document.querySelectorAll(sliderItems),
+          sliderRoad = document.querySelector(sliderWay),
+          slider = document.querySelector(sliderWrapper);
 
 
     let stylesBtms =  window.getComputedStyle(slideBtns[0], null),
@@ -97,6 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
     });
+    }
+    runMySlider({
+            nextSlideBtn: '.gallery__slider-right', 
+            prevSlideBtn: '.gallery__slider-left', 
+            counterSlideItems: '.gallery__slider-counter', 
+            sliderItems: '.gallery__slide-btn', 
+            sliderWay: '.gallery__slider-road', 
+            sliderWrapper: '.gallery__slider'
+        });
+    
     //catalog
     const btnsLands = document.querySelectorAll('.catalog__nav-item > button');
 
