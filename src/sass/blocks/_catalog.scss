@@ -83,19 +83,52 @@
     &__item {
         position: relative;
         width: 100%;
+     
         &-content {
             padding: 25px 0;
         }
         &-btn {
             position: relative;
-            display: block;
             width: 100%;
-            height: 115px;
-            text-align-last: left;
-            border-top: 1px solid  #CACACA;
-            border-bottom: 1px solid  #CACACA;
+            min-height: 115px;
+            text-align: left;
             background: unset;
             z-index: 1;
+            border-top: 1px solid  #CACACA;
+            border-bottom: 1px solid  #CACACA;
+            margin-bottom: -1px;
+            &:focus {
+                span {
+                    background-color:#9D5CD0;
+                    color: #fff;
+                }
+                & ~ .arrow {
+                    border: 2px solid #D1A9F0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+            }
+            &:hover {
+                border-color: #9D5CD0;
+                & ~ .arrow {
+                    border: 2px solid #D1A9F0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+                span {
+                    color: #9D5CD0;
+                    background-color: #fff;
+                }
+            }
+            &:active {
+                border-color: #7943A4;
+                & ~ .arrow {
+                    border: 2px solid #9D5CD0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+                span {
+                    color: #7943A4;
+                    background-color: #fff;
+                }
+            }
         }
         .arrow {
             position: absolute;
@@ -105,6 +138,7 @@
             height: 50px;
             border-radius: 100%;
             z-index: 0;
+            border: 2px solid #ECECEC;
             background:#ECECEC url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
         }
         &-links {
@@ -117,6 +151,28 @@
                 text-align: left;
                 background: unset;
                 color: #333333;
+                &:focus {
+                    span {
+                        background-color:#9D5CD0;
+                        color: #fff;
+                    }
+                }
+                &:hover {
+                    border-color: #9D5CD0;
+                    span {
+                        color: #9D5CD0;
+                        background-color: #fff;
+                        text-decoration: underline;
+                    }
+                }
+                &:active {
+                    border-color: #7943A4;
+                    span {
+                        color: #7943A4;
+                        background-color: #fff;
+                        text-decoration: none;
+                    }
+                }
             }
         }
         &-noitem {
