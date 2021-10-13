@@ -124,5 +124,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const listBtns = document.querySelectorAll('.catalog__item-btn'),
+          listContents = document.querySelectorAll('.catalog__item-content');
+
+    listContents.forEach(content => {
+        content.style.display = 'none';
+        content.classList.remove('fade');
+    })
+    
+    listBtns.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            listContents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('fade');
+            });
+            if(btn.classList.contains('catalog__item-btn-active')) {
+                listContents.forEach(content => {
+                    content.style.display = 'none';
+                    content.classList.remove('fade');
+                });
+                btn.classList.remove('catalog__item-btn-active');
+            } else {
+                listBtns.forEach(btn => {
+                    btn.classList.remove('catalog__item-btn-active');
+                });
+                btn.classList.add('catalog__item-btn-active');
+
+                listContents[i].style.display = 'flex';
+                listContents[i].classList.add('fade');
+            }
+        });
+    });
+
+    //event 
+    const trigger = document.querySelector('.events__btn');
+          fadeCards = document.querySelectorAll('.events__item-add');
+    
+    trigger.addEventListener('click', () => {
+        if(trigger.hasAttribute('data-active')) {
+            trigger.removeAttribute('data-active', '');
+            trigger.textContent = 'Все события';
+            fadeCards.forEach(card => {
+                card.classList.remove('fade');
+                card.style.display = 'none';
+            });
+        } else {
+            trigger.setAttribute('data-active', '');
+            trigger.textContent = 'Свернуть';
+            fadeCards.forEach(card => {
+                card.classList.add('fade');
+                card.style.display = 'flex';
+            });
+        }
+    })
+
 
 });

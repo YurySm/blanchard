@@ -87,49 +87,6 @@
         &-content {
             padding: 25px 0;
         }
-        &-btn {
-            position: relative;
-            width: 100%;
-            min-height: 115px;
-            text-align: left;
-            background: unset;
-            z-index: 1;
-            border-top: 1px solid  #CACACA;
-            border-bottom: 1px solid  #CACACA;
-            margin-bottom: -1px;
-            &:focus {
-                span {
-                    background-color:#9D5CD0;
-                    color: #fff;
-                }
-                & ~ .arrow {
-                    border: 2px solid #D1A9F0;
-                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
-                }
-            }
-            &:hover {
-                border-color: #9D5CD0;
-                & ~ .arrow {
-                    border: 2px solid #D1A9F0;
-                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
-                }
-                span {
-                    color: #9D5CD0;
-                    background-color: #fff;
-                }
-            }
-            &:active {
-                border-color: #7943A4;
-                & ~ .arrow {
-                    border: 2px solid #9D5CD0;
-                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
-                }
-                span {
-                    color: #7943A4;
-                    background-color: #fff;
-                }
-            }
-        }
         .arrow {
             position: absolute;
             top: 32px;
@@ -141,6 +98,67 @@
             border: 2px solid #ECECEC;
             background:#ECECEC url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
         }
+        &-btn {
+            position: relative;
+            width: 100%;
+            min-height: 115px;
+            text-align: left;
+            background: unset;
+            z-index: 1;
+            border-top: 1px solid  #CACACA;
+            border-bottom: 1px solid  #CACACA;
+            margin-bottom: -1px;
+            &:focus {
+                z-index: 2;
+                span {
+                    background-color:#9D5CD0;
+                    color: #fff;
+                }
+                & ~ .arrow {
+                    border: 2px solid #D1A9F0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+            }
+            &:hover {
+                z-index: 2;
+                border-color: #9D5CD0;
+                & ~ .arrow {
+                    border: 2px solid #D1A9F0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+                span {
+                    color: #9D5CD0;
+                    background-color: #fff;
+                }
+            }
+            
+            &:active {
+                z-index: 2;
+                border-color: #7943A4;
+                & ~ .arrow {
+                    border: 2px solid #9D5CD0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+                span {
+                    color: #7943A4;
+                    background-color: #fff;
+                }
+            }
+            &-active {
+                z-index: 2;
+                border-color: #9D5CD0;
+                & ~ .arrow {
+                    transform: rotate(180deg);
+                    border: 2px solid #D1A9F0;
+                    background: #D1A9F0 url('../icons/catalog/catalog-arrow.svg') center center no-repeat;
+                }
+                span {
+                    color: #9D5CD0;
+                    background-color: #fff;
+                }
+            }
+        }
+        
         &-links {
             display: flex;
             flex-direction: column;
