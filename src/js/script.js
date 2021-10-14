@@ -41,23 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //galerry promo
-    function runMySlider({nextSlideBtn, prevSlideBtn, counterSlideItems, sliderItems, sliderWay, sliderWrapper}) {
+    function runMySlider({nextSlideBtn, prevSlideBtn, counterSlideItems, sliderItems, sliderWay, sliderWrapper, multiply=1, addHeigth=0, bottomHeight=50}) {
         const nextBtn = document.querySelector(nextSlideBtn),
           prevBtn = document.querySelector(prevSlideBtn),
           counter = document.querySelector(counterSlideItems),
           slideBtns = document.querySelectorAll(sliderItems),
           sliderRoad = document.querySelector(sliderWay),
           slider = document.querySelector(sliderWrapper);
-
+    
+    
 
     let stylesBtms =  window.getComputedStyle(slideBtns[0], null),
-        heightWindow = (Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px',"")) * 2) + 50,
+        heightWindow = (Math.ceil(stylesBtms.height.match(/\d+/).input.replace('px',"")) * multiply) + addHeigth,
         sliderRoadHeight = (Math.round(window.getComputedStyle(sliderRoad, null).height.replace('px','')) ),
         counterSlide = 1,
         allSlide = Math.round(sliderRoadHeight/heightWindow);
 
         counter.innerHTML = `${counterSlide} / ${allSlide}`;
-
+    
+        console.log(stylesBtms);
 
     slider.style.cssText = `
             height: ${heightWindow}px;
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             counterSlide = allSlide;
             counter.innerHTML = `${counterSlide} / ${allSlide}`;
             sliderRoad.style.cssText = `
-                transform: translateY(${heightWindow * -(allSlide-1) - 150 }px);
+                transform: translateY(${heightWindow * -(allSlide-1) - bottomHeight }px);
             `;            
         } else {
             counter.innerHTML = `${--counterSlide} / ${allSlide}`;
@@ -105,7 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
             counterSlideItems: '.gallery__slider-counter', 
             sliderItems: '.gallery__slide-btn', 
             sliderWay: '.gallery__slider-road', 
-            sliderWrapper: '.gallery__slider'
+            sliderWrapper: '.gallery__slider',
+            multiply: 2,
+            addHeigth: 50,
+            bottomHeight: 150
         });
     
     //catalog
@@ -177,6 +182,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     })
+
+    //editions slider 
+    runMySlider({
+        nextSlideBtn: '.editions__slider-right', 
+        prevSlideBtn: '.editions__slider-left', 
+        counterSlideItems: '.editions__slider-counter', 
+        sliderItems: '.editions__slide', 
+        sliderWay: '.editions__slider-road', 
+        sliderWrapper: '.editions__slider-window'
+    });
 
 
 });
